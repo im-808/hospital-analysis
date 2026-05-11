@@ -9,7 +9,6 @@ st.set_page_config(page_title="서울시 응급실 데이터 분석기", layout=
 
 # 2. 데이터베이스 파일 존재 여부 확인
 import os
-import streamlit as st
 
 # 현재 app.py 파일 위치 기준 경로 설정
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
