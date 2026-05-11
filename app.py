@@ -92,13 +92,13 @@ with st.expander("사용한 SQL 및 인사이트 보기"):
 
 
 # --- 차트 3: 서울시 구별 응급실 이용량 TOP7 ---
-st.header("3. 구별 응급실 이용 TOP 7")
+st.header("3. 서울시 구별 응급실 이용량 TOP 7")
 
 sql3 = """
 SELECT district,
        usage_count
 FROM district_usage
-ORDER BY usage_count DESC
+ORDER BY usage_count ASC
 LIMIT 7
 """
 
