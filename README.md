@@ -1,6 +1,7 @@
 # hospital-analysis
 ai link
-(https://aistudio.google.com/prompts/new_chat)](https://aistudio.google.com/prompts/1c8v90ShkwL1YdbSA_5rWYXIohFh9mNcC)
+(https://aistudio.google.com/prompts/1c8v90ShkwL1YdbSA_5rWYXIohFh9mNcC)
+
 
 
 
