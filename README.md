@@ -1,9 +1,8 @@
 # hospital-analysis
 ai link
-[[https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2219FtThtPRhXGF6FsWcnIpVVswfwgYLlYI%22%5D,%22action%22:%22open%22,%22userId%22:%22115553268219523983847%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
-](https://aistudio.google.com/prompts/new_chat)](https://aistudio.google.com/prompts/1c8v90ShkwL1YdbSA_5rWYXIohFh9mNcC)
-데이터
-데이터와 클린징 과정 설명
+(https://aistudio.google.com/prompts/new_chat)](https://aistudio.google.com/prompts/1c8v90ShkwL1YdbSA_5rWYXIohFh9mNcC)
+
+
 
 - 데이터 설명
 본 프로젝트는 서울시 응급실 이용 현황과 응급의료기관 분포를 분석하기 위해 공공데이터를 활용하여 제작하였다. 데이터는 서울 열린데이터광장 및 공공데이터포털의 응급의료 관련 통계 자료를 기반으로 수집하였다.
