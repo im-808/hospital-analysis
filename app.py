@@ -8,10 +8,18 @@ import plotly.express as px
 st.set_page_config(page_title="서울시 응급실 데이터 분석기", layout="wide")
 
 # 2. 데이터베이스 파일 존재 여부 확인
-db_path = 'emergency_analysis.db.db'
+import os
+import streamlit as st
 
+# 현재 app.py 파일 위치 기준 경로 설정
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 데이터베이스 파일 경로
+db_path = os.path.join(BASE_DIR, 'emergency_analysis.db')
+
+# DB 파일 존재 여부 확인
 if not os.path.exists(db_path):
-    st.error(f"🚨 '{db_path}' 파일이 같은 폴더에 없습니다. 데이터베이스 파일을 확인해주세요!")
+    st.error(f"🚨 '{db_path}' 파일이 같은 폴더에 없습니다.")
     st.stop()
 
 # 3. 데이터베이스 연결 함수
