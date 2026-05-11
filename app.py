@@ -69,7 +69,20 @@ ORDER BY avg_usage DESC
 """
 df2 = run_query(sql2)
 
-fig2 = px.bar(df2, x='age_group', y='avg_usage', color='age_group', title="2021년 하반기 연령대별 평균 응급실 이용량")
+fig2 = px.bar(df2, x='age_group', y='avg_usage', color='age_group', category_orders={
+    "age_group": [
+        "1세미만",
+        "1 - 9세",
+        "10 - 19세",
+        "20 - 29세",
+        "30 - 39세",
+        "40 - 49세",
+        "50 - 59세",
+        "60 - 69세",
+        "70 - 79세",
+        "80세이상"
+    ]
+}, title="2021년 하반기 연령대별 평균 응급실 이용량")
 st.plotly_chart(fig2, use_container_width=True)
 
 with st.expander("사용한 SQL 및 인사이트 보기"):
