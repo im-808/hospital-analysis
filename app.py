@@ -8,7 +8,7 @@ import plotly.express as px
 st.set_page_config(page_title="서울시 응급실 데이터 분석기", layout="wide")
 
 # 2. 데이터베이스 파일 존재 여부 확인
-db_path = 'emergency_analysis.db'
+db_path = 'emergency_analysis.db.db'
 
 if not os.path.exists(db_path):
     st.error(f"🚨 '{db_path}' 파일이 같은 폴더에 없습니다. 데이터베이스 파일을 확인해주세요!")
