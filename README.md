@@ -86,7 +86,7 @@ ai link
 
 
 처음 google ai 쓸 때는 없었지만 이후 chat GPT 활용하여 차트 하나 더 추가함.
-# --- 차트 3: 구별 응급실 이용 TOP7 ---
+#---차트 3: 구별 응급실 이용 TOP7---
 st.header("3. 구별 응급실 이용 TOP 7")
 
 sql3 = """
@@ -108,7 +108,7 @@ fig3 = px.bar(
     title="응급실 이용량이 높은 서울시 자치구 TOP 7"
 )
 
-# 높은 값이 위로 오도록 뒤집기
+#높은 값이 위로 오도록 뒤집기
 fig3.update_layout(yaxis={'categoryorder':'total ascending'})
 
 st.plotly_chart(fig3, use_container_width=True)
