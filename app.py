@@ -5,7 +5,7 @@ import os
 import plotly.express as px
 
 # 1. 페이지 설정 (제목, 레이아웃)
-st.set_page_config(page_title="응급의료 데이터 분석기", layout="wide")
+st.set_page_config(page_title="서울시 응급실 데이터 분석기", layout="wide")
 
 # 2. 데이터베이스 파일 존재 여부 확인
 db_path = 'emergency_analysis.db'
