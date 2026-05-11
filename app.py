@@ -98,7 +98,7 @@ sql3 = """
 SELECT district,
        usage_count
 FROM district_usage
-ORDER BY usage_count ASC
+ORDER BY usage_count DESC
 LIMIT 7
 """
 
@@ -136,6 +136,7 @@ LIMIT 7
 """
 df3 = run_query(sql3)
 
+# 높은 값이 위로 오도록 뒤집기
 fig3 = px.bar(df3, x='기관수', y='자치구', orientation='h', color='기관수', 
              color_continuous_scale='Viridis', title="서울시 내 응급의료기관이 많은 상위 7개 지역")
 st.plotly_chart(fig3, use_container_width=True)
