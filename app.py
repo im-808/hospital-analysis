@@ -91,8 +91,41 @@ with st.expander("사용한 SQL 및 인사이트 보기"):
     st.write("- 각 행(연령대)별로 6개월치 컬럼의 평균값을 계산하여 시각화했습니다.")
 
 
-# --- 차트 3: 서울시 구별 응급의료기관 수 TOP 7 ---
-st.header("3. 서울시 구별 응급의료기관 수 TOP 7")
+# --- 차트 3: 서울시 구별 응급실 이용량 TOP7 ---
+st.header("3. 구별 응급실 이용 TOP 7")
+
+sql3 = """
+SELECT district,
+       usage_count
+FROM district_usage
+ORDER BY usage_count DESC
+LIMIT 7
+"""
+
+df3 = run_query(sql3)
+
+fig3 = px.bar(
+    df3,
+    x='usage_count',
+    y='district',
+    orientation='h',
+    color='district',
+    title="응급실 이용량이 높은 서울시 자치구 TOP 7"
+)
+
+# 높은 값이 위로 오도록 뒤집기
+fig3.update_layout(yaxis={'categoryorder':'total ascending'})
+
+st.plotly_chart(fig3, use_container_width=True)
+
+with st.expander("사용한 SQL 및 인사이트 보기"):
+    st.code(sql3, language='sql')
+    st.write("- **인사이트**: 특정 자치구에 응급실 이용 수요가 집중되는 현상을 확인할 수 있습니다.")
+    st.write("- 대형 병원 밀집 지역이나 인구가 많은 지역에서 응급실 이용량이 높게 나타나는 경향을 보입니다.")
+
+
+# --- 차트 4: 서울시 구별 응급의료기관 수 TOP 7 ---
+st.header("4. 서울시 구별 응급의료기관 수 TOP 7")
 
 sql3 = """
 SELECT district as '자치구', COUNT(hospital_id) as '기관수'
@@ -113,3 +146,5 @@ with st.expander("사용한 SQL 및 인사이트 보기"):
     st.write("- `COUNT`와 `GROUP BY`를 활용해 자치구별 병원 수를 집계하고 상위 7위까지만 추출했습니다.")
 
 st.caption("데이터 출처: 공공데이터 포털 / 분석도구: Streamlit, Plotly")
+
+
