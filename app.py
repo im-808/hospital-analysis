@@ -21,7 +21,7 @@ def run_query(query):
 
 # --- 대시보드 화면 구성 ---
 
-st.title("🚑 공공데이터 분석 대시보드")
+st.title("🚑 서울시 응급실 공공데이터 분석 대시보드")
 st.markdown("""
 이 대시보드는 **응급실 이용 패턴**과 **지역별 의료기관 현황**을 한눈에 파악하기 위해 제작되었습니다.
 SQLite 데이터베이스의 데이터를 실시간으로 읽어와 시각화합니다.
@@ -63,7 +63,7 @@ ORDER BY avg_usage DESC
 """
 df2 = run_query(sql2)
 
-fig2 = px.bar(df2, x='age_group', y='avg_usage', color='age_group', title="연령대별 6개월 평균 이용량")
+fig2 = px.bar(df2, x='age_group', y='avg_usage', color='age_group', title="2021년 하반기 연령대별 평균 응급 이용량")
 st.plotly_chart(fig2, use_container_width=True)
 
 with st.expander("사용한 SQL 및 인사이트 보기"):
@@ -72,8 +72,8 @@ with st.expander("사용한 SQL 및 인사이트 보기"):
     st.write("- 각 행(연령대)별로 6개월치 컬럼의 평균값을 계산하여 시각화했습니다.")
 
 
-# --- 차트 3: 구별 응급의료기관 수 TOP 7 ---
-st.header("3. 구별 응급의료기관 수 TOP 7")
+# --- 차트 3: 서울시 구별 응급의료기관 수 TOP 7 ---
+st.header("3. 서울시 구별 응급의료기관 수 TOP 7")
 
 sql3 = """
 SELECT district as '자치구', COUNT(hospital_id) as '기관수'
