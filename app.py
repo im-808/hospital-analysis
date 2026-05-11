@@ -139,6 +139,9 @@ df3 = run_query(sql3)
 
 fig3 = px.bar(df3, x='기관수', y='자치구', orientation='h', color='기관수', 
              color_continuous_scale='Viridis', title="서울시 내 응급의료기관이 많은 상위 7개 지역")
+fig3.update_layout(
+    yaxis={'categoryorder':'total ascending'}
+)
 st.plotly_chart(fig3, use_container_width=True)
 
 with st.expander("사용한 SQL 및 인사이트 보기"):
