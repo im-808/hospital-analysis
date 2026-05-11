@@ -84,3 +84,36 @@ ai link
   응급의료 인프라가 지역별로 균등하게 분포하지 않음을 보여준다.
   응급실 이용량과 의료기관 수를 함께 비교하면 지역별 의료 접근성 차이를 분석할 수 있다.
 
+
+처음 google ai 쓸 때는 없었지만 이후 chat GPT 활용하여 차트 하나 더 추가함.
+# --- 차트 3: 구별 응급실 이용 TOP7 ---
+st.header("3. 구별 응급실 이용 TOP 7")
+
+sql3 = """
+SELECT district,
+       usage_count
+FROM district_usage
+ORDER BY usage_count DESC
+LIMIT 7
+"""
+
+df3 = run_query(sql3)
+
+fig3 = px.bar(
+    df3,
+    x='usage_count',
+    y='district',
+    orientation='h',
+    color='district',
+    title="응급실 이용량이 높은 서울시 자치구 TOP 7"
+)
+
+# 높은 값이 위로 오도록 뒤집기
+fig3.update_layout(yaxis={'categoryorder':'total ascending'})
+
+st.plotly_chart(fig3, use_container_width=True)
+
+with st.expander("사용한 SQL 및 인사이트 보기"):
+    st.code(sql3, language='sql')
+    st.write("- **인사이트**: 특정 자치구에 응급실 이용 수요가 집중되는 현상을 확인할 수 있습니다.")
+    st.write("- 대형 병원 밀집 지역이나 인구가 많은 지역에서 응급실 이용량이 높게 나타나는 경향을 보입니다.")
