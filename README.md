@@ -86,8 +86,8 @@ ai link
 
 
 
+- 처음 google ai 쓸 때는 없었지만 이후 chat GPT 활용하여 차트 하나 더 추가함.
 
--처음 google ai 쓸 때는 없었지만 이후 chat GPT 활용하여 차트 하나 더 추가함.
 #---차트 3: 구별 응급실 이용 TOP7---
 st.header("3. 구별 응급실 이용 TOP 7")
 
